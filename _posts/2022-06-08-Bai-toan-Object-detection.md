@@ -20,8 +20,9 @@ Classification with localization:
 ![image](https://user-images.githubusercontent.com/79956682/172671506-8cf8fd40-da72-4d10-b019-55911a1f2c11.png)
 The standard classification pipeline
 Ngoài xác định đối tượng đó thuộc lớp nào, ta muốn xác định thêm vị trí của chúng thì làm như thế nào?
-Thay đổi kiến trúc trên lại một chút, thay vì đầu ra là xác suất của mỗi lớp, ta thêm thông tin của bouding box cụ thể là b¬x, by, bh, bw.
+Thay đổi kiến trúc trên lại một chút, thay vì đầu ra là xác suất của mỗi lớp, ta thêm thông tin của bouding box cụ thể là $$ b_x,b_y,b_w,b_h $$.
 ![image](https://user-images.githubusercontent.com/79956682/172671543-e7fe36b6-6177-408d-b364-40d85ee9ac59.png)
+
 Xác định target label đầu ra y:
 $$ y=[p_c,b_x,b_y,b_w,b_h,c_1,c_2,c_3] $$
 
@@ -31,6 +32,7 @@ p¬c: cho biết có bất kỳ đối tượng nào trong ảnh hay không
 b¬x, by, bh, bw¬: sẽ cho biết vị trí của bouding box của đối tượng
 c1, c2, c3: nhãn của đối tượng trong ảnh tương ứng với class 1, class 2, class 3
 ![image](https://user-images.githubusercontent.com/79956682/172671619-fc19eff8-37cf-4ee5-881c-de0582702290.png)
+
 Định nghĩa label  target y. Nếu không có đối tượng nào trong ảnh tương ứng với pc=0 các thành phần còn lại  “don’t care”.
 Loss function:
-f(ŷ,y)={█(〖((y_1 ) ̂- y_1)〗^2  + 〖((y_2 ) ̂- y_2)〗^2  + ...+ 〖((y_n ) ̂- y_n)〗^2,& if y_1=1@〖((y_1 ) ̂- y_1)〗^2  ,& if y_1=0)┤
+$$f(ŷ,y)={█(〖((y_1 ) ̂- y_1)〗^2  + 〖((y_2 ) ̂- y_2)〗^2  + ...+ 〖((y_n ) ̂- y_n)〗^2,& if y_1=1@〖((y_1 ) ̂- y_1)〗^2  ,& if y_1=0)┤%%
