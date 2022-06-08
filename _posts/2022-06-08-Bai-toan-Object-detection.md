@@ -23,7 +23,7 @@ Ngoài xác định đối tượng đó thuộc lớp nào, ta muốn xác đ�
 Thay đổi kiến trúc trên lại một chút, thay vì đầu ra là xác suất của mỗi lớp, ta thêm thông tin của bouding box cụ thể là b¬x, by, bh, bw.
 ![image](https://user-images.githubusercontent.com/79956682/172671543-e7fe36b6-6177-408d-b364-40d85ee9ac59.png)
 Xác định target label đầu ra y:
-![formula](https://render.githubusercontent.com/render/math?math=y = [p¬c, b¬x, by, bh, bw, c1, c2, c3])
+![formula](https://render.githubusercontent.com/render/math?math=[p¬c, b¬x, by, bh, bw, c1, c2, c3])
 
 Với:
 p¬c: cho biết có bất kỳ đối tượng nào trong ảnh hay không 
