@@ -35,4 +35,4 @@ c1, c2, c3: nhãn của đối tượng trong ảnh tương ứng với class 1,
 
 Định nghĩa label  target y. Nếu không có đối tượng nào trong ảnh tương ứng với pc=0 các thành phần còn lại  “don’t care”.
 Loss function:
-$$f(ŷ,y)={█(〖((y_1 ) ̂- y_1)〗^2  + 〖((y_2 ) ̂- y_2)〗^2  + ...+ 〖((y_n ) ̂- y_n)〗^2,& if y_1=1@〖((y_1 ) ̂- y_1)〗^2  ,& if y_1=0)┤%%
+$$f(ŷ,y)={█(〖((y_1 ) ̂- y_1)〗^2  + 〖((y_2 ) ̂- y_2)〗^2  + ...+ 〖((y_n ) ̂- y_n)〗^2,& if y_1=1@〖((y_1 ) ̂- y_1)〗^2  ,& if y_1=0)┤ $$
