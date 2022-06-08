@@ -1,3 +1,8 @@
+---
+layout: post
+title: Bài toán Object detection
+---
+
 # Bài toán Object detection
 
 Bài toán Object detection là một trong những bài toán nhận được nhiều sự quan tâm trong lĩnh vực thị giác máy tính, nó được cải tiến rất nhiều so với trước đây. Trước khi đi tìm hiểu bài toán nhận dạng đối tượng ta cùng xem xét bài toán phân loại ảnh (Image classification) và xác định vị trí đối trượng (Object localization).
