@@ -32,5 +32,5 @@ Cuối cùng, cho mỗi grid cell trong 9 cell, chúng ta sẽ có kích thướ
 Chuẩn hóa $$b_x,b_y$$ theo grid cell và $$b_w,b_h$$ theo ảnh. 
 ![image](https://user-images.githubusercontent.com/79956682/172772633-8ab0de63-618e-4a94-b991-db97b0746e13.png)
 
-$$  b_x=\frac{b_x}{w_{cell}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} %%
-%% b_w=\frac{b_w}{w_{img}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} %%
+$$  b_x=\frac{b_x}{w_{cell}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$
+$$ b_w=\frac{b_w}{w_{img}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$
