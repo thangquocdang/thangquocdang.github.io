@@ -40,4 +40,9 @@ $$c_1,c_2,c_3$$: nhãn của đối tượng trong ảnh tương ứng với cla
 
 Định nghĩa label  target y. Nếu không có đối tượng nào trong ảnh tương ứng với pc=0 các thành phần còn lại  “don’t care”.
 Loss function:
-$$f(ŷ,y)={█(〖((y_1 ) ̂- y_1)〗^2  + 〖((y_2 ) ̂- y_2)〗^2  + ...+ 〖((y_n ) ̂- y_n)〗^2,& if y_1=1@〖((y_1 ) ̂- y_1)〗^2  ,& if y_1=0)┤ $$
+$$
+f(\hat{\mathrm{y}}, y)=\left\{\begin{aligned}
+\left(\widehat{y_{1}}-y_{1}\right)^{2}+\left(\widehat{y_{2}}-y_{2}\right)^{2}+\ldots+\left(\widehat{y_{n}}-y_{n}\right)^{2}, & \text { if } y_{1}=1 \\
+\left(\widehat{y_{1}}-y_{1}\right)^{2}, & \text { if } y_{1}=0
+\end{aligned}\right.
+$$
