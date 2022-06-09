@@ -35,6 +35,6 @@ Chuẩn hóa $$b_x,b_y$$ theo grid cell và $$b_w,b_h$$ theo ảnh.
 $$  b_x=\frac{b_x}{w_{cell}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$ <br>
 $$ b_w=\frac{b_w}{w_{img}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$ <br>
 
-Với cách làm này thì để tránh việc bounding box có giá trị $$b_w$$ và $$b_y$$ nằm ngoài cell. Ngoài ra đưa các giá trị về miền liên tục.
+Với cách làm này thì để tránh việc bounding box có giá trị $$b_w$$ và $$b_y$$ nằm ngoài cell. Ngoài ra đưa các giá trị này về miền liên tục để thuận tiện cho việc training.
 
 
