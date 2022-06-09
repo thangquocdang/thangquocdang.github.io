@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bài toán Object detection
+title: Sliding windows Detection Algorithm
 ---
 
 ## Sliding windows Detection Algorithm
