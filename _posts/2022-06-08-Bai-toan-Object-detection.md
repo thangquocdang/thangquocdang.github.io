@@ -4,7 +4,7 @@ title: Bài toán Object detection
 ---
 
 # Bài toán Object detection
-
+Bài toán Object detection \\(x_\{t}\\) Bài toán Object detection 
 Bài toán Object detection là một trong những bài toán nhận được nhiều sự quan tâm trong lĩnh vực thị giác máy tính, nó được cải tiến rất nhiều so với trước đây. Trước khi đi tìm hiểu bài toán nhận dạng đối tượng ta cùng xem xét bài toán phân loại ảnh (Image classification) và xác định vị trí đối trượng (Object localization).
 Note: tất cả các ví dụ bên dưới sử dụng labels: người đi bộ, xe máy, oto.
 Image classification: input nhận vào một ảnh và nhiệm vụ của nó cho biết ảnh đó thuộc lớp ô tô, xe đạp hay người đi bộ
