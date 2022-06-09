@@ -16,7 +16,7 @@ _Ví dụ hình ảnh với Grid 3x3 có 9 cell_
 Đối với mỗi grid cell label y được định nghĩa như sau:
 $$ y=[p_c,b_x,b_y,b_w,b_h,c_1,c_2,c_3] $$
 
-Trong đó:
+Trong đó: <br>
 $$p_c$$: cho biết có bất kỳ đối tượng nào trong grid cell hay không <br>
 $$b_x,b_y,b_w,b_h$$: sẽ cho biết vị trí của bouding box của đối tượng <br>
 $$c_1,c_2,c_3$$: nhãn của đối tượng trong grid cell tương ứng với class 1, class 2, class 3 <br>
@@ -32,5 +32,5 @@ Cuối cùng, cho mỗi grid cell trong 9 cell, chúng ta sẽ có kích thướ
 Chuẩn hóa $$b_x,b_y$$ theo grid cell và $$b_w,b_h$$ theo ảnh. 
 ![image](https://user-images.githubusercontent.com/79956682/172772633-8ab0de63-618e-4a94-b991-db97b0746e13.png)
 
-$$  b_x=\frac{b_x}{w_{cell}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$
+$$  b_x=\frac{b_x}{w_{cell}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$ <br>
 $$ b_w=\frac{b_w}{w_{img}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b_y=\frac{b_y}{h_{cell}} $$
