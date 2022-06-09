@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
 ---
 
@@ -12,4 +12,4 @@ A place to include any other types of information that you'd like to include abo
 
 ### Contact me
 
-[email@domain.com](mailto:quocthang1311dut@gmail.com)
+[quocthang1311dut@gmail.com](mailto:quocthang1311dut@gmail.com)
