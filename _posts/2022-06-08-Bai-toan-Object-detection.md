@@ -20,7 +20,7 @@ Classification with localization:
 ![image](https://user-images.githubusercontent.com/79956682/172671506-8cf8fd40-da72-4d10-b019-55911a1f2c11.png)
 The standard classification pipeline
 Ngoài xác định đối tượng đó thuộc lớp nào, ta muốn xác định thêm vị trí của chúng thì làm như thế nào?
-Thay đổi kiến trúc trên lại một chút, thay vì đầu ra là xác suất của mỗi lớp, ta thêm thông tin của bouding box cụ thể là $$ b_x,b_y,b_w,b_h $$.
+Thay đổi kiến trúc trên lại một chút, thay vì đầu ra là xác suất của mỗi lớp, ta thêm thông tin của bouding box cụ thể là $\ b_x,b_y,b_w,b_h $.
 ![image](https://user-images.githubusercontent.com/79956682/172671543-e7fe36b6-6177-408d-b364-40d85ee9ac59.png)
 
 Xác định target label đầu ra y:
