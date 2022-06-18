@@ -3,9 +3,10 @@ layout: post
 title: Bounding Box Predictions
 ---
 
-# Bounding Box Predictions
+
 
 Một cách để output các bounding box chính xác hơn là sử dụng thuật toán YOLO. Cách làm như sau chia ảnh thành các lưới (grid), về cơ bản sử dụng thuật toán Classification with localization và áp dụng cho từng ô (cell) trong grid. <br>
+### Bounding Box Predictions
 Ví dụ hình ảnh bên dưới với Grid 3x3 có 9 cell:
 
 ![image](https://user-images.githubusercontent.com/79956682/172772077-e80f32bc-bb42-4657-89ba-2454522ffe57.png)
