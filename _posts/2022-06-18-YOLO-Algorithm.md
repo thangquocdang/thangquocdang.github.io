@@ -42,7 +42,7 @@ Hình. Mỗi cell có 2 bounding box để dự đoán
 
 
 
-Tiếp theo ta sẽ loại bỏ các boxes có giá trị p¬c thấp mà ConvNet cho rằng không có object ở đó. 
+Tiếp theo ta sẽ loại bỏ các boxes có giá trị $$p_c$$ thấp mà ConvNet cho rằng không có object ở đó. 
 
 ![image](https://user-images.githubusercontent.com/79956682/174419831-e027177c-0597-4460-afa6-0f8d1b42add6.png)
 
