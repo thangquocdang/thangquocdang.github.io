@@ -12,8 +12,7 @@ Chúng ta đã tìm hiểu qua các thành phần của một thuật toán obje
 2	- Ô tô
 3	- Xe đạp
 
-Mình sử dụng 2 anchor boxes, dùng grid cell 3x3 thì output y có dạng 3x3x2x8 
-3x3x2x8 trong đó:
+Mình sử dụng 2 anchor boxes, dùng grid cell 3x3 thì output y có dạng 3x3x2x8, trong đó:
 - 3x3 là grid cell sử dụng
 - 2 là số anchor boxes
 - 8 là bao gồm $$ p_c,b_x,b_y,b_w,b_h,c_1,c_2,c_3 $$
