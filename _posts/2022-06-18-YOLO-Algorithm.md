@@ -5,7 +5,7 @@ title: YOLO Algorithm
 
 Chúng ta đã tìm hiểu qua các thành phần của một thuật toán object detection như là Convolutional implementation of sliding window, Intersection Over Union, Non-max suppression. Bây giờ, ta lắp các mảnh ghép đó lại với nhau để tạo thành thuật toán object detection gọi là YOLO.
 
-#### Training
+### Training
 
 Đầu tiên mình đi xây dựng tập huấn luyện, giả sử mình đang huấn luyện model để detect 3 object:
 1	- Người đi bộ
@@ -31,8 +31,10 @@ Tiếp theo hãy xem thuật toán thực hiện dự đoán như thế nào.
 
 ![image](https://user-images.githubusercontent.com/79956682/174419777-2bd343a6-f672-4f5b-8ba2-7e70be9d7b0f.png)
 
-Ở hình trên, cell màu xanh biển có vector y đầu ra màu xanh biển tương ứng với $$p_c$$ của 2 anchor box là 0, và sẽ cho ra một số giá trị nào đó cho các thành phần còn lại (don’t care) nhưng các giá trị này sẽ bị bỏ qua vì ConvNet biết rằng không có object nào ở đó cả vì thế cho dù nó có ra vị trí của bounding box hay predict đó là xe ô tô hay gì cũng không quan trọng. Ngược lại đó với cell màu xanh lá  có vector đầu ra y màu xanh lá tương ứng với hy vọng rằng $$p_c$$ của anchor box thứ nhất là 0 và mong muốn với anchor box thứ 2 sẽ dự đoán ra chính xác bounding box của xe ô tô.
-Cuối cùng, tất cả phải trải qua quá trình gọi là non-max suppression, hãy xem nó như thế nào nàooo.
+Ở hình trên, cell màu xanh biển có vector y đầu ra màu xanh biển tương ứng với $$p_c$$ của 2 anchor box là 0, và sẽ cho ra một số giá trị nào đó cho các thành phần còn lại (don’t care) nhưng các giá trị này sẽ bị bỏ qua vì ConvNet biết rằng không có object nào ở đó cả vì thế cho dù nó có ra vị trí của bounding box hay predict đó là xe ô tô hay gì cũng không quan trọng. Ngược lại đối với cell màu xanh lá  có vector đầu ra y màu xanh lá tương ứng với hy vọng rằng $$p_c$$ của anchor box thứ nhất là 0 và mong muốn với anchor box thứ 2 sẽ dự đoán ra chính xác bounding box của xe ô tô.
+
+### Outputting the non-max supressed outputs
+Cuối cùng, tất cả phải trải qua quá trình gọi là non-max suppression, hãy xem nó như thế nào nàooo. <br>
 Nếu bạn sử dụng 2 anchor box như ở ví dụ trên thì mỗi cell trong grid sẽ nhận được 2 bounding boxes. Vậy trong grid bạn sẽ nhận được tất cả là 18 bounding box. 
 
 ![image](https://user-images.githubusercontent.com/79956682/174419818-3fa51546-bbfb-4807-b3c5-613f69f56528.png)
@@ -40,7 +42,7 @@ Nếu bạn sử dụng 2 anchor box như ở ví dụ trên thì mỗi cell tro
 Hình. Mỗi cell có 2 bounding box để dự đoán
 
 
-### Outputting the non-max supressed outputs
+
 Tiếp theo ta sẽ loại bỏ các boxes có giá trị p¬c thấp mà ConvNet cho rằng không có object ở đó. 
 
 ![image](https://user-images.githubusercontent.com/79956682/174419831-e027177c-0597-4460-afa6-0f8d1b42add6.png)
