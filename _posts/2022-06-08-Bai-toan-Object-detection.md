@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bài toán Object detection
+categories: ObjectDetection
 ---
 
 
