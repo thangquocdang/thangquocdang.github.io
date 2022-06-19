@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Semantic Segmentation with U-Net
+categories: SemanticSegmentation
 ---
 
 Mục tiêu đối với bài toán Classification input là 1 bức ảnh và tìm ra nhữnng gì có trong đó chẳng hạn như có con mèo hay không, với bài toán Object detection thì có thêm mục tiêu xem bounding box xung quanh object được tìm thấy. <br>
