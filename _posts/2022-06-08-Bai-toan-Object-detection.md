@@ -1,6 +1,6 @@
 ---
 layout: post
-title:[Course CNN] Task Object detection
+title: Task Object detection [Course CNN] 
 categories: ObjectDetection
 ---
 
@@ -45,4 +45,7 @@ f(\hat{\mathrm{y}}, y)=\left\{\begin{aligned}
 \left(\widehat{y_{1}}-y_{1}\right)^{2}+\left(\widehat{y_{2}}-y_{2}\right)^{2}+\ldots+\left(\widehat{y_{n}}-y_{n}\right)^{2}, & \text { if } y_{1}=1 \\
 \left(\widehat{y_{1}}-y_{1}\right)^{2}, & \text { if } y_{1}=0
 \end{aligned}\right.
-$$
+$$ <br>
+
+
+Nguồn tham khảo: https://www.coursera.org/learn/convolutional-neural-networks
