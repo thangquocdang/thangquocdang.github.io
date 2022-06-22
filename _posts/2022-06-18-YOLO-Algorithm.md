@@ -54,3 +54,5 @@ Và cuối cùng nếu ta có 3 classes để detect, đối với mỗi class s
 ![image](https://user-images.githubusercontent.com/79956682/174419841-5fa299b5-61b6-4044-badd-e5ecf189e0ef.png)
 
 Hình. Sử dụng độc lập non-max supression cho mỗi class
+
+Nguồn tham khảo: https://www.coursera.org/learn/convolutional-neural-networks
