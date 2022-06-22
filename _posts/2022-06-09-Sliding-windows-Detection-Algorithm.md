@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Course CNN] Sliding windows Detection Algorithm
+title: Sliding windows Detection Algorithm [Course CNN]
 categories: ObjectDetection
 ---
 
@@ -35,4 +35,7 @@ Với cách làm như trên thay thế các unit của lớp FC thành các lớ
 ![image](https://user-images.githubusercontent.com/79956682/172757952-f1406637-564c-45d3-b595-fe54cbda0d6b.png)
 
 So với Sliding windows Detection ban đầu, thay vì crop ảnh rồi cho qua ConvNet để dự đoán thì chúng ta triển khai Convolutional ngay trên toàn bộ ảnh để cho ra dự đoán. <br>
-Nhược điểm: Vị trí các bouding box không quá chính xác
+Nhược điểm: Vị trí các bouding box không quá chính xác <br>
+
+
+Nguồn tham khảo: https://www.coursera.org/learn/convolutional-neural-networks
