@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Course CNN] YOLO Algorithm
+title: YOLO Algorithm [Course CNN] 
 categories: ObjectDetection
 ---
 
