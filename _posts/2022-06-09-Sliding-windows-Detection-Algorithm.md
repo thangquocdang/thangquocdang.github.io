@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Sliding windows Detection Algorithm
+title: [Course CNN] Sliding windows Detection Algorithm
+categories: ObjectDetection
 ---
 
 ## Sliding windows Detection Algorithm
