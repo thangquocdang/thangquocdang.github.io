@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Bounding Box Predictions
+title: [Course CNN] Bounding Box Predictions
+categories: ObjectDetection
 ---
 
 
