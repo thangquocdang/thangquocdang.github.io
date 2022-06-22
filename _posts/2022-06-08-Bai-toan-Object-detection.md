@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Task Object detection [Course CNN] 
+title: Object detection [Course CNN] 
 categories: ObjectDetection
 ---
 
