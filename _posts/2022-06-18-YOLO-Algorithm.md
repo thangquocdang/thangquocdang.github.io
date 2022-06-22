@@ -1,6 +1,7 @@
 ---
 layout: post
-title: YOLO Algorithm
+title: [Course CNN] YOLO Algorithm
+categories: ObjectDetection
 ---
 
 Chúng ta đã tìm hiểu qua các thành phần của một thuật toán object detection như là Convolutional implementation of sliding window, Intersection Over Union, Non-max suppression. Bây giờ, ta lắp các mảnh ghép đó lại với nhau để tạo thành thuật toán object detection gọi là YOLO.
