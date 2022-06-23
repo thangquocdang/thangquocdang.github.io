@@ -4,11 +4,14 @@ title: About me
 permalink: /about/
 ---
 
-Some information about you!
 
-### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+
+#### Background
+
+I come from electronics and telecommuncation engineering in Vietnam. But I consider myself a AI Engineer. Interesting right? So even though I have a good and extensive background in math, calculus and statistics, it was not easy to get started with machine learning and then deep learning.
+
+_"Stay hungry, stay foolish."_ - _**Steve Jobs**_
 
 ### Contact me
 
