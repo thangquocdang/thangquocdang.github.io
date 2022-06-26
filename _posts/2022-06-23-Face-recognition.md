@@ -85,8 +85,40 @@ d(A, P) \leq d(A, N) \\
 $$
 
 <br>Ý nghĩa thêm hyperparameter α: 
-Nếu $$\|f(A)-f(P)\|=0$$ và $$\|f(A)-f(N)\|=0$$ hay nói cách khác f(img)\ =\ \vec{0} , thì mạng Neural xem như không học được gì, và để đảm bảo mạng Neural không output bằng 0 cho tất cả các encoding hoặc để chắc chắn rằng nó không đặt tất cả các encoding bằng nhau, thì ta thêm - \alpha để nó phải nhỏ hơn một số âm, và \alpha này cũng được gọi là margin. <br>
+Nếu $$\|f(A)-f(P)\|=0$$ và $$\|f(A)-f(N)\|=0$$ hay nói cách khác $$f(img)\ =\ \vec{0}$$ , thì mạng Neural xem như không học được gì, và để đảm bảo mạng Neural không output bằng 0 cho tất cả các encoding hoặc để chắc chắn rằng nó không đặt tất cả các encoding bằng nhau, thì ta thêm - $$\alpha$$ để nó phải nhỏ hơn một số âm, và $$\alpha$$ này cũng được gọi là margin. <br>
 
 Ví dụ ta đặt $$\alpha\ (margin)\ =\ 0.2 , d\left(A,P\right) = 0.5$$ thì  $$d\left(A,P\right)+\ \alpha\ \le\ d\left(A,N\right)$$
 
-Và sẽ không thỏa mãn nếu d\left(A,N\right) chỉ là 0.51, mặc dù khoảng cách $$d\left(A,N\right)$$ lớn hơn $$d\left(A,P\right)$$ nhưng vẫn không đủ tốt. Chúng ta muốn $$d\left(A,N\right)$$ lớn hơn d\left(A,P\right) một khoảng $$\alpha$$ (margin). Cụ thể ở ví dụ trên $$d\left(A,N\right)$$ phải ít nhất là 0.7 hoặc lớn hơn để thoải mãn khoảng cách giữa chúng ít nhất là 0.2. Bạn có thể đẩy $$d\left(A,N\right)$$ lên hoặc hạ $$d\left(A,P\right)$$ xuống để thỏa mãn margin = 0.2.
+Và sẽ không thỏa mãn nếu $$d\left(A,N\right)$$ chỉ là 0.51, mặc dù khoảng cách $$d\left(A,N\right)$$ lớn hơn $$d\left(A,P\right)$$ nhưng vẫn không đủ tốt. Chúng ta muốn $$d\left(A,N\right)$$ lớn hơn $$d\left(A,P\right)$$ một khoảng $$\alpha$$ (margin). Cụ thể ở ví dụ trên $$d\left(A,N\right)$$ phải ít nhất là 0.7 hoặc lớn hơn để thoải mãn khoảng cách giữa chúng ít nhất là 0.2. Bạn có thể đẩy $$d\left(A,N\right)$$ lên hoặc hạ $$d\left(A,P\right)$$ xuống để thỏa mãn margin = 0.2.
+
+### Loss function
+Triplet function được xác định trên bộ ba hình ảnh A, P, N <br>
+
+ $$£(A,P ,N) = max(||f(A) - f(P)|| - ||f(A) - f(N)|| +  α,0) $$
+ 
+Trên toàn bộ training set: <br>
+
+$$ i = 1m£(A(i),P(i),N(i)) $$
+
+Nếu bạn có trainning set với 10k ảnh của 1k người, những gì bạn làm là lấy 10k ảnh đó và tạo ra bộ ba A, P, N sao đó train sử dụng gradient descent trên loss function. 
+Vậy bạn chọn triplets A, P, N như thế nào? <br>
+
+Suốt quá trình tranning, nếu A, P, N được chọn ngẫu nhiên, lúc đó (A, N) rất khác so với (A, P) thì biểu thức (2) rất dễ dàng được thỏa mãn, do đó mạng Neural sẽ không học hỏi được gì nhiều từ nó. <br>
+Chọn A, P, N sao cho nó “hard” hơn để model học “hard” hơn nếu bạn chọn sao cho $$d\left(A,P\right)\approx d\left(A,N\right)$$ khi đó mạng Neural sẽ cố gắng đẩy $$d\left(A,N\right)$$ hoặc giảm $$d\left(A,P\right)$$ xuống.
+
+### Face Verification and Binary Classification
+Triplet loss là một cách tốt để học các parameters của CNN để nhận diện khuôn mặt, còn có một cách khác để làm việc này, với bài toán face recognition cũng có thể coi là như một bài toán nhị phân. <br>
+
+![image](https://user-images.githubusercontent.com/79956682/175821367-46b6d930-444b-4030-97a0-4ec3b2f1f545.png)
+
+Một cách khác để train một mạng Neural, là lấy output một cặp mạng Neural này như Siamese Network sau đó input vào một unit logistic regression để đưa ra dự đoán, target output sẽ là 1 nếu “same” và 0 nếu “different” , đây là cách xem bài toán face regcognition như một bài toán phân loại nhị phân và cũng là một giải pháp thay thế cho triplet loss để tranning một hệ thống như thế này. <br>
+Vậy Unit logistic regression ở đây thực sự làm gì? <br>
+Output $$\hat{y}$$ sẽ là một hàm sigmoid cụ thể: <br>
+
+$$\hat{y}\ =\ \delta(\sum_{k=1}^{K}{|f(x^{(i)})}_k\ -\ {f(x^{(j)})}_k|) $$
+
+Với k là thành phần thứ K trong vector feature, và bạn thêm wi và b tương tự như một unit logistic regression thông thường, và sẽ train để tính weight thích hợp cho k feature này để xem 2 ảnh đó là “same” hay “different” <br>
+
+$$\hat{y}\ =\ \delta(w_k\sum_{k=1}^{K}{|f(x^{(i)})}_k\ -\ {f(x^{(j)})}_k|\ +\ b) $$
+
+Để triển khai hệ thống này là nếu có ảnh mới x¬¬(i) ¬với hy vọng rằng recognition được người đó và x¬¬(j) ¬ là dữ liệu trong database, x¬¬(j) ¬¬¬ đã được tính toán từ trước và được lưu lại. Khi có ảnh mới x¬¬(i) thì chỉ cần đi qua mạng CNN sẽ có được vector feature, lấy vector này và cùng với vetor feature đã được lưu trong database đưa qua Unit logistic regression đưa đưa ra dự đoán. Bạn không cần lưu trữ hình ảnh thô, và nếu có thêm ảnh mới trong database của bạn thì bạn không cần tính lại encode toàn bộ, chỉ cần encoding cho ảnh mới.  
