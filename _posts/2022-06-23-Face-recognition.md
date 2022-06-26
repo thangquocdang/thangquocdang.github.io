@@ -23,11 +23,17 @@ Trước tiên mình cùng xem qua thuật ngữ sử dụng trong face recognit
 
 Một trong những thách thức của face recognition cần phải giải quyết đó là one-shot learning problem. Hầu hếu các ứng dụng face recognition cần phải có khả năng recognize một người khi đầu vào chỉ là một ảnh duy nhất của người đó. <br>
 Giả sử bạn có một database gồm 4 hình ảnh về nhân viên trong công ty, và có ai đó xuất hiện tại văn phòng và họ muốn đi qua cánh cửa, những gì hệ thống của bạn phải làm là phải recognize người đó có trong database của bạn hay không, mặt dù chỉ có một hình ảnh của người đó có trong database. <br>
+<br>
 Một cách tiếp cận có thể thử là input ảnh của người đó và đi qua ConvNet và output là một 5 unit sử dụng softmax để dự đoán người đó có phải 1 trong 4 người trong database hoặc không phải người nào ở trên. Nhưng điều này hoạt động không thực sự tốt nếu bạn không có bộ dataset tranning đủ lớn để trainning một mạng ConvNet cho tác vụ này. <br>
+
 Thêm một điều nữa là điều gì sẽ xảy ra nếu ta có thêm một người mới gia nhập vào công ty của bạn? Giờ bạn có 5 người để recognize vậy output của mạng ConvNet trên phải là 6, do đó phải tranning lại ConvNet một lần nữa, dường như cách tiếp cận này không hiệu quả. <br>
+
 Thay vào đó, để hoạt động hiệu quả hơn, không cần phải tranning lại model khi có thêm dữ liệu mới, ta sẽ cho model học một similarity function. <br>
+
 _d(img1, img2) = degree of difference between images_ <br>
+<br>
 Similarity function được biểu thị là d, nhận 2 hình ảnh img1 và img2 và cho ra mức độ khác nhau giữa 2 hình ảnh đó.  <br>
+
 Vì vậy, nếu hai hình ảnh nhận vào cùng là 1 người thì mong muốn output là 1 số nhỏ, ngược lại nếu 2 ảnh input là khác nhau (không phải cùng 1 người) thì mong muốn output là một số lớn. <br>
 Trong suốt quá trình recognition, nếu độ khác nhau giữa 2 bức ảnh nhỏ hơn 1 ngưỡng τ (hyperparameter) thì bạn sẽ dự đoán 2 bức ảnh này cùng 1 người <br>
 
