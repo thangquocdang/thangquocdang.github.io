@@ -35,3 +35,58 @@ $$\left\{\begin{array}{c}\text { if d }(\text { img } 1, \text { img } 2) \leq \
 
 Đó là cách giải quyết bài toán face verification, để sử dụng điều này cho face recognition bạn cần sử dụng hàm d này để so sánh 2 hình ảnh theo từng cặp bao gồm ảnh cần recognition và ảnh có trong database, nếu ảnh mà người không có database thì mong muốn hàm d output một số rất lớn để chứng tỏ người này là “unknow”. <br>
 Điều này giải quyết được one-shot learning problem, miễn là model có thể học được hàm d nhận vào một cặp ảnh và output là cùng 1 người hay 2 người khác nhau. Và nếu có người mới trong database thì nó vẫn chạy tốt. <br>
+
+### Siamese Network
+Nhiệm vụ của hàm d mà tìm hiểu trước đó cho biết 2 khuôn mặt giống nhau hay khác nhau như thế nào, một cách để làm tốt điều này là sử dụng Siamese network. <br>
+
+Giả sử ta có ảnh đầu vào $$\mathrm{X}^{(1)}$$ đi qua một chuỗi Conv -> pooling -> Conv -> Pooling -> FC -> FC và output một feature vector f(x^{(1)})  $$ f\left(x^{(1)}\right) $$, giả sử feature vector này có kích thước là 128,  và $$ f\left(x^{(1)}\right) $$ được xem như encoding với đầu vào là $$\mathrm{X}^{(1)}$$ . <br>
+
+Cách để xây dựng face recognition system là bạn so sánh 2 hình ảnh, 2 ảnh này cùng đi qua cùng mạng Neural giống nhau về kiến trúc, parameters như hình phía bên dưới
+
+![image](https://user-images.githubusercontent.com/79956682/175820548-989ba3b6-9337-4c38-a9c4-c1549783df32.png)
+
+$$\mathrm{X}^{(1)}$$ -> CovNet -> $$ f\left(x^{(1)}\right) $$
+$$\mathrm{X}^{(2)}$$ -> CovNet -> $$ f\left(x^{(2)}\right) $$
+
+Nếu encoding ra vector biểu diễn tốt 2 hình ảnh trên thì bạn có thể định nghĩa hàm như sau (có thể sử dụng norm 1 hoặc norm 2 để tính khoảng cách 2 vector):
+
+$$d\left(x^{(1)}, x^{(2)}\right)=\left\|\mathrm{f}\left(x^{(1)}\right)\mathrm{f}\left(x^{(1)}\right)\right\|$$
+
+Vậy ý tưởng là sử dụng 2 model giống hệt nhau trên 2 đầu vào khác nhau và sau đó so sánh vector đầu ra của chúng, được gọi là Siamese neural network architecture. <br?
+Train mạng Siamese này như thế nào hay nói cách khác model phải học được hàm d?, nên nhớ rằng ta có 2 mạng neural nhưng có cùng parameters.  <br>
+Tóm lại: <br>
+
+- Các parameters của mạng Neural sẽ xác định một encode cho mỗi đầu vào x^{\left(i\right)} được biễu diễn bởi 1 vector.
+- Và những gì phải làm là model học sao cho các parameters phân biệt được rằng:
+
+$$\text { Nếu } x^{(i)}, x^{(j)} \text { là cùng một người thì}\left\|\mathrm{f}\left(x^{(i)}\right)-\mathrm{f}\left(x^{(j)}\right)\right\| \text { là nhỏ. }
+$$
+$$
+\text { Nếu } x^{(i)}, x^{(j)} \text { là cùng một người thì }\left\|\mathrm{f}\left(x^{(i)}\right)-\mathrm{f}\left(x^{(j)}\right)\right\| \text { là lớn. }
+$$
+
+Tiếp theo mình cùng đi xây dựng hàm loss cho Siamese network. <br>
+
+### Triplet loss
+Một cách để learn parameters của mạng Neural để cho ra một encode (vector presentation) tốt với hình ảnh của bạn là áp dụng gradient descent trên triplet loss function. Cùng tìm hiểu nó như thế nào nhé :) <br>
+Để áp dụng triplet loss là bạn cần so sánh các cặp ảnh với nhau, ví dụ: <br>
+
+![image](https://user-images.githubusercontent.com/79956682/175820676-a9f0ab96-87cb-46be-b6b5-3255e8da462c.png)
+
+Trong triplet loss, những gì bạn cần làm là nhìn vào ảnh Anchor sau đó tính khoảng cách với các ảnh khác, trong đó khoảng cách giữa Anchor và Positive và khoảng cách giữa Anchor và Negative  phải xa hơn nhiều so với khoảng cách giữa Anchor và Positive. <br>
+Vậy tại một thời điểm, bạn tìm 3 bức ảnh gồm Anchor (A), Positive (P), Negative (N). Để formalize điều này, bạn muốn d(A,P) phải nhỏ hơn d(A,N). <br>
+
+$$
+\begin{gathered}
+d(A, P) \leq d(A, N) \\
+\leftrightarrow\|f(A)-f(P)\| \leq\|f(A)-f(N)\| \\
+\leftrightarrow\|f(A)-f(P)\|-\|f(A)-f(N)\| \leq 0(1)
+\end{gathered}
+$$
+
+<br>Ý nghĩa thêm hyperparameter α: 
+Nếu $$\|f(A)-f(P)\|=0$$ và $$\|f(A)-f(N)\|=0$$ hay nói cách khác f(img)\ =\ \vec{0} , thì mạng Neural xem như không học được gì, và để đảm bảo mạng Neural không output bằng 0 cho tất cả các encoding hoặc để chắc chắn rằng nó không đặt tất cả các encoding bằng nhau, thì ta thêm - \alpha để nó phải nhỏ hơn một số âm, và \alpha này cũng được gọi là margin. <br>
+
+Ví dụ ta đặt $$\alpha\ (margin)\ =\ 0.2 , d\left(A,P\right) = 0.5$$ thì  $$d\left(A,P\right)+\ \alpha\ \le\ d\left(A,N\right)$$
+
+Và sẽ không thỏa mãn nếu d\left(A,N\right) chỉ là 0.51, mặc dù khoảng cách $$d\left(A,N\right)$$ lớn hơn $$d\left(A,P\right)$$ nhưng vẫn không đủ tốt. Chúng ta muốn $$d\left(A,N\right)$$ lớn hơn d\left(A,P\right) một khoảng $$\alpha$$ (margin). Cụ thể ở ví dụ trên $$d\left(A,N\right)$$ phải ít nhất là 0.7 hoặc lớn hơn để thoải mãn khoảng cách giữa chúng ít nhất là 0.2. Bạn có thể đẩy $$d\left(A,N\right)$$ lên hoặc hạ $$d\left(A,P\right)$$ xuống để thỏa mãn margin = 0.2.
