@@ -110,7 +110,7 @@ Nếu bạn có trainning set với 10k ảnh của 1k người, những gì b�
 Vậy bạn chọn triplets A, P, N như thế nào? <br>
 
 Suốt quá trình tranning, nếu A, P, N được chọn ngẫu nhiên, lúc đó (A, N) rất khác so với (A, P) thì biểu thức (2) rất dễ dàng được thỏa mãn, do đó mạng Neural sẽ không học hỏi được gì nhiều từ nó. <br>
-Chọn A, P, N sao cho nó “hard” hơn để model học “hard” hơn nếu bạn chọn sao cho $$d\left(A,P\right)\approx d\left(A,N\right)$$ khi đó mạng Neural sẽ cố gắng đẩy $$d\left(A,N\right)$$ hoặc giảm $$d\left(A,P\right)$$ xuống.
+Chọn A, P, N sao cho nó “hard” hơn để model học “hard” hơn bình thường, nếu bạn chọn sao cho $$d\left(A,P\right)\approx d\left(A,N\right)$$ khi đó mạng Neural sẽ cố gắng đẩy $$d\left(A,N\right)$$ hoặc giảm $$d\left(A,P\right)$$ xuống.
 
 ### Face Verification and Binary Classification
 Triplet loss là một cách tốt để học các parameters của CNN để nhận diện khuôn mặt, còn có một cách khác để làm việc này, với bài toán face recognition cũng có thể coi là như một bài toán nhị phân. <br>
