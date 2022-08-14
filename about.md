@@ -7,7 +7,7 @@ permalink: /about/
 
 
 
-Just a normal people
+Just a normal people.
 
 _"Stay hungry, stay foolish."_ - _**The Whole Earth Catalog**_
 
