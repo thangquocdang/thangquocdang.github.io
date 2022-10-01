@@ -7,7 +7,7 @@ permalink: /about/
 
 
 
-Just a normal people.
+I'm just a normal person right now doing normal things.
 
 _"Stay hungry, stay foolish."_ - _**The Whole Earth Catalog**_
 
